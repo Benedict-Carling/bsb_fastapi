@@ -1,5 +1,9 @@
+##### Local
+
 ## Run local
 uvicorn app.main:app --reload
+
+##### AWS
 
 ### elastic beanstalk init enviroment
 eb init -p docker application-name
