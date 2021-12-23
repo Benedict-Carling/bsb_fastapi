@@ -2,7 +2,7 @@ aiofiles==0.7.0
 appdirs==1.4.4
 asgiref==3.4.1
 attrs==21.2.0
-basicsynbio==0.6.0
+basicsynbio==0.7.0
 biopython==1.79
 black==21.7b0
 certifi==2021.5.30
