@@ -12,16 +12,14 @@ import basicsynbio as bsb
 
 
 def buildEchoInstructions(
-    background_tasks, assemblyArray: List[basicAssembly], hashFileDict: Dict = None
+    assemblyArray: List[basicAssembly], hashFileDict: Dict = None
 ):
     try:
         bsbBuild = jsonAssemblyArrayToBsbBuild(assemblyArray, hashFileDict)
         if isinstance(bsbBuild, str):
             return {"result": False, "message": bsbBuild}
-        filepath = bsb.export_echo_assembly(bsbBuild)
-        return returnFileResponse(
-            filepath, "application/zip", "archive.zip", background_tasks
-        )
+        filepath = bsb.export_echo_assembly_instructions(bsbBuild)
+        return read_return_delete(filepath, "application/zip", filepath)
 
     except Exception as e:
         return {"result": False, "message": str(e)}

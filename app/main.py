@@ -164,9 +164,8 @@ async def build_csvs(
 
 
 # Route to return echo representation on basicAssembly Object
-@app.post("/buildechoinstructions", response_class=FileResponse)
+@app.post("/buildechoinstructions")
 async def build_echo_instructions(
-    background_tasks: BackgroundTasks,
     myAssemblyArrayStr: str = Form(...),
     files: Optional[List[UploadFile]] = File([]),
 ):
@@ -180,7 +179,6 @@ async def build_echo_instructions(
     return buildEchoInstructions(
         assemblyArray=AssemblyArray,
         hashFileDict=hashFileDictionary,
-        background_tasks=background_tasks,
     )
 
 
